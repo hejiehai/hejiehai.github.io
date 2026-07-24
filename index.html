@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 大模型应用开发工程师</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6edf7 100%);
+            color: #2d3748;
+            padding: 40px 16px;
+            line-height: 1.7;
+        }
+
+        .resume-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12);
+            overflow: hidden;
+            animation: fadeIn 0.7s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 头部区域：头像+基础信息 */
+        .resume-header {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            color: #fff;
+            padding: 36px 32px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .avatar-box {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #ffffff22;
+            border: 3px solid #fff;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .avatar-empty {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: #fff;
+        }
+
+        .header-info {
+            flex: 1;
+            min-width: 280px;
+        }
+        .header-info h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .job-position {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            margin-bottom: 14px;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 22px;
+            font-size: 0.95rem;
+        }
+        .contact-row span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 主体竖版内容 */
+        .resume-content {
+            padding: 32px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        section h2 {
+            font-size: 1.2rem;
+            color: #1d4ed8;
+            border-left: 5px solid #1d4ed8;
+            padding-left: 12px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* 技能标签 */
+        .skill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+        }
+
+        /* 时间线条目 */
+        .timeline-item {
+            margin-bottom: 24px;
+        }
+        .timeline-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .timeline-date {
+            color: #64748b;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .timeline-subtitle {
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        /* 列表样式 */
+        .text-list {
+            list-style: none;
+        }
+        .text-list li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 7px;
+            font-size: 0.96rem;
+        }
+        .text-list li::before {
+            content: "•";
+            color: #1d4ed8;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 响应式手机适配 */
+        @media (max-width: 640px) {
+            .resume-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 26px 20px;
+            }
+            .contact-row {
+                justify-content: center;
+            }
+            .resume-content {
+                padding: 22px 18px;
+            }
+            .timeline-head {
+                flex-direction: column;
+            }
+        }
+
+        /* 打印PDF优化 */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .resume-wrap {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="resume-wrap">
+    <!-- 头部：头像 + 个人信息 -->
+    <div class="resume-header">
+        <div class="avatar-box">
+            <!-- 使用说明：把本地照片放到同目录，修改src路径；无图片则显示默认图标 -->
+            <!-- <img src="avatar.jpg" alt="头像"> -->
+            <div class="avatar-empty">👤</div>
+        </div>
+        <div class="header-info">
+            <h1>张三</h1>
+            <div class="job-position">大模型应用开发工程师</div>
+            <div class="contact-row">
+                <span>📞 138-0000-0000</span>
+                <span>📧 example@email.com</span>
+                <span>📍 广东省深圳市</span>
+                <span>💻 github.com/yourname</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume-content">
+        <section>
+            <h2>个人简介</h2>
+            <p>专注大模型应用层开发，熟悉LLM调用、Prompt工程、RAG检索增强、Agent智能体开发；熟练使用Python构建AI应用服务，掌握向量数据库、知识库搭建；具备后端接口开发、异步任务调度经验，能够独立完成AI产品从原型到上线落地；擅长结合业务场景设计大模型解决方案，持续跟踪大模型前沿技术。</p>
+        </section>
+
+        <section>
+            <h2>专业技能</h2>
+            <div class="skill-group">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">LangChain</span>
+                <span class="skill-tag">LangGraph</span>
+                <span class="skill-tag">RAG</span>
+                <span class="skill-tag">Agent</span>
+                <span class="skill-tag">Prompt工程</span>
+                <span class="skill-tag">OpenAI / 通义千问 / 文心一言</span>
+                <span class="skill-tag">Milvus / FAISS / Chroma</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">MySQL / Redis</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">向量检索</span>
+                <span class="skill-tag">文本Embedding</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>工作经历</h2>
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div class="timeline-title">XX科技 | 大模型应用开发工程师</div>
+                    <div class="timeline-date">202X.XX - 至今</div>
+                </div>
+                <ul class="text-list">
+                    <li>基于LangChain/LangGraph搭建企业知识库RAG系统，完成文档解析、文本分块、Embedding向量化、向量库检索链路开发</li>
+                    <li>封装多厂商大模型统一调用SDK，兼容OpenAI、国内主流大模型API，实现负载均衡与故障降级</li>
+                    <li>设计并开发AI智能Agent，实现工具调用、任务拆解、多轮对话能力，落地业务自动化场景</li>
+                    <li>使用FastAPI提供AI能力接口，优化并发请求、限流、会话管理，提升服务稳定性</li>
+                    <li>持续优化Prompt策略、重排、检索过滤策略，降低幻觉，提升问答准确率</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div class="timeline-title">XX信息技术公司 | 后端开发工程师</div>
+                    <div class="timeline-date">202X.XX - 202X.XX</div>
+                </div>
+                <ul class="text-list">
+                    <li>负责后端业务接口开发、数据存储设计、定时任务开发</li>
+                    <li>参与系统性能优化，处理慢查询、缓存方案落地</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>项目经历</h2>
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div class="timeline-title">企业智能知识库问答平台（RAG系统）</div>
+                    <div class="timeline-date">202X.XX - 202X.XX</div>
+                </div>
+                <ul class="text-list">
+                    <li>独立搭建文档处理流水线：PDF/Word解析、文本清洗、自适应分块、Embedding向量化入库Milvus</li>
+                    <li>实现多路检索+重排机制，解决长文档问答、上下文多轮对话问题</li>
+                    <li>提供后台管理功能：知识库管理、文档上传、问答日志、阈值配置</li>
+                    <li>支撑内部员工业务咨询，显著降低人工咨询成本</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div class="timeline-title">AI智能任务Agent系统</div>
+                    <div class="timeline-date">202X.XX - 202X.XX</div>
+                </div>
+                <ul class="text-list">
+                    <li>基于LangGraph构建状态机Agent，支持自主判断是否调用工具、多步骤任务执行</li>
+                    <li>封装检索工具、计算工具、数据库查询工具，实现复杂任务链式执行</li>
+                    <li>增加记忆持久化、对话历史管理，支持长时间多轮交互</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>教育经历</h2>
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div class="timeline-title">XX大学 | 计算机科学与技术 硕士</div>
+                    <div class="timeline-date">20XX.09 - 20XX.06</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>自我评价</h2>
+            <p>深耕大模型应用开发方向，熟悉RAG、Agent完整落地流程；具备较强工程化能力，能够快速将大模型能力落地业务场景；善于调研新技术、调优Prompt与检索策略；良好的代码规范与问题排查能力，沟通协作顺畅，期望持续在AI应用领域长期发展。</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    // Ctrl+P 快速打印导出PDF简历
+    document.addEventListener('keydown', e => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+            window.print();
+        }
+    })
+</script>
+</body>
+</html>
